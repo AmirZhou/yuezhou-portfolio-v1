@@ -93,7 +93,7 @@ export default function Info() {
             color: 'rgba(255,255,255,0.4)',
             marginBottom: '1rem',
           }}>
-            October 2024 · Full Marathon · 3:11
+            October 2025 · Full Marathon · 3:11
           </p>
           <p style={{
             fontSize: '1rem',
