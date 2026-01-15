@@ -67,18 +67,18 @@ export default function ProjectCard({
         position: 'relative',
       }}
     >
-      {/* Center glow effect */}
+      {/* Top-down lighting effect */}
       <div
         style={{
           position: 'absolute',
-          top: '50%',
+          top: 0,
           left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '80%',
-          height: '60%',
-          background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.04) 0%, transparent 70%)',
+          transform: 'translateX(-50%)',
+          width: '70%',
+          height: '120px',
+          background: 'radial-gradient(ellipse at top, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 40%, transparent 70%)',
           pointerEvents: 'none',
-          opacity: isHovered ? 1 : 0.6,
+          opacity: isHovered ? 1 : 0.7,
           transition: 'opacity 0.3s ease',
         }}
       />
