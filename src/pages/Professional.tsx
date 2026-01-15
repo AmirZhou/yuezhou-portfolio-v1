@@ -3,25 +3,25 @@ import ProjectCard from '../components/ProjectCard'
 
 const projects = [
   {
-    title: 'Rural Alberta Health Connect',
-    company: 'Healthcare',
-    year: '24',
-    description: 'Connecting rural communities to healthcare services.',
-    image: '/rahc.jpeg',
-    link: 'https://rahc-website.vercel.app',
-  },
-  {
     title: 'Selah',
     company: 'Productivity',
-    year: '24',
+    year: '26',
     description: 'A tool for thoughtful planning.',
     image: '/selah.png',
     link: 'https://selah.paraflux.ca/',
   },
   {
+    title: 'Rural Alberta Health Connect',
+    company: 'Healthcare',
+    year: '25',
+    description: 'Connecting rural communities to healthcare services.',
+    image: '/rahc.jpeg',
+    link: 'https://rahc-website.vercel.app',
+  },
+  {
     title: 'Nutritional Insight',
     company: 'Health',
-    year: '24',
+    year: '25',
     description: 'Understanding what you eat.',
     image: '/nutrition-insight.jpeg',
     link: 'https://mango-forest-005595e10.3.azurestaticapps.net/',
@@ -29,7 +29,7 @@ const projects = [
   {
     title: 'IMG to Markdown',
     company: 'Developer Tool',
-    year: '24',
+    year: '25',
     description: 'Generate markdown links from images.',
     image: '/markdown-image-generator.png',
     link: 'https://img-md.paraflux.ca',
