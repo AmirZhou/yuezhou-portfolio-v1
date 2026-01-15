@@ -62,7 +62,7 @@ export default function Footer() {
         fontSize: '0.75rem',
         color: 'rgba(255,255,255,0.4)',
       }}>
-        © {new Date().getFullYear()} Yue Zhou. All Rights Reserved.
+        © {new Date().getFullYear()} Yue Zhou.
       </div>
     </footer>
   )
