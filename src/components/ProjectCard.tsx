@@ -64,8 +64,24 @@ export default function ProjectCard({
         border: `1px solid ${isHovered ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.1)'}`,
         textDecoration: 'none',
         transition: 'border-color 0.3s ease',
+        position: 'relative',
       }}
     >
+      {/* Center glow effect */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '80%',
+          height: '60%',
+          background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.04) 0%, transparent 70%)',
+          pointerEvents: 'none',
+          opacity: isHovered ? 1 : 0.6,
+          transition: 'opacity 0.3s ease',
+        }}
+      />
       {/* Header */}
       <div style={{ padding: '1.25rem 1.5rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
