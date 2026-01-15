@@ -69,7 +69,7 @@ export default function Info() {
         <div>
           <img
             src="/2025-victoria-marathon.jpeg"
-            alt="Victoria Marathon 2024"
+            alt="Victoria Marathon 2025"
             loading="eager"
             fetchPriority="high"
             style={{
