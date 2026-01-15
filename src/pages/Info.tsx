@@ -175,7 +175,7 @@ export default function Info() {
       >
         <StatItem label="Marathons" value="2" />
         <StatItem label="Full Marathon PB" value="3:11" />
-        <StatItem label="2024 Avg" value="14km/day" />
+        <StatItem label="2025 Avg" value="14km/day" />
       </motion.section>
 
       {/* Friends */}
