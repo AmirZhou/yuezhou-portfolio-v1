@@ -52,7 +52,6 @@ function AdminContent() {
       const id = await createPost({ title, slug, excerpt, content, publish })
       setSelectedId(id)
     }
-    setIsPublished(publish)
   }
 
   const handleDelete = async () => {
