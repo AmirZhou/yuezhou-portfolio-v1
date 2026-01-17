@@ -38,18 +38,50 @@ const buttonStyle = {
 
 interface PostEditorProps {
   post: Post | null
-  onSave: (data: { title: string; slug: string; excerpt: string; content: string }, publish: boolean) => Promise<void>
+  onSave: (data: { title: string; slug: string; excerpt: string; content: string; coverImage?: Id<'_storage'> }, publish: boolean) => Promise<void>
   onDelete: () => void
 }
 
 function PostEditor({ post, onSave, onDelete }: PostEditorProps) {
+  const generateUploadUrl = useMutation(api.files.generateUploadUrl)
+
   const [title, setTitle] = useState(post?.title ?? '')
   const [slug, setSlug] = useState(post?.slug ?? '')
   const [excerpt, setExcerpt] = useState(post?.excerpt ?? '')
   const [content, setContent] = useState(post?.content ?? '')
+  const [coverImage, setCoverImage] = useState<Id<'_storage'> | undefined>(post?.coverImage)
+  const [coverPreview, setCoverPreview] = useState<string | null>(post?.coverImageUrl ?? null)
+  const [uploading, setUploading] = useState(false)
+
+  const handleCoverUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    setUploading(true)
+    try {
+      const uploadUrl = await generateUploadUrl()
+      const result = await fetch(uploadUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': file.type },
+        body: file,
+      })
+      const { storageId } = await result.json()
+      setCoverImage(storageId)
+      setCoverPreview(URL.createObjectURL(file))
+    } catch (err) {
+      console.error('Upload failed:', err)
+    } finally {
+      setUploading(false)
+    }
+  }
+
+  const handleRemoveCover = () => {
+    setCoverImage(undefined)
+    setCoverPreview(null)
+  }
 
   const handleSave = async (publish: boolean) => {
-    await onSave({ title, slug, excerpt, content }, publish)
+    await onSave({ title, slug, excerpt, content, coverImage }, publish)
   }
 
   return (
@@ -74,6 +106,53 @@ function PostEditor({ post, onSave, onDelete }: PostEditorProps) {
         placeholder="Brief excerpt..."
         style={inputStyle}
       />
+
+      {/* Cover Image Upload */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '1rem',
+        padding: '0.75rem 1rem',
+        background: 'rgba(255,255,255,0.03)',
+        border: '1px solid rgba(255,255,255,0.1)',
+        borderRadius: '8px',
+      }}>
+        {coverPreview ? (
+          <>
+            <img
+              src={coverPreview}
+              alt="Cover"
+              style={{ width: '80px', height: '45px', objectFit: 'cover', borderRadius: '4px' }}
+            />
+            <span style={{ flex: 1, color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem' }}>
+              Cover image set
+            </span>
+            <button
+              onClick={handleRemoveCover}
+              style={{ ...buttonStyle, padding: '0.25rem 0.5rem', fontSize: '0.75rem' }}
+            >
+              Remove
+            </button>
+          </>
+        ) : (
+          <>
+            <span style={{ flex: 1, color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }}>
+              {uploading ? 'Uploading...' : 'No cover image'}
+            </span>
+            <label style={{ ...buttonStyle, cursor: 'pointer' }}>
+              Upload Cover
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleCoverUpload}
+                style={{ display: 'none' }}
+                disabled={uploading}
+              />
+            </label>
+          </>
+        )}
+      </div>
+
       <div style={{ flex: 1 }}>
         <MarkdownEditor
           initialContent={content}
