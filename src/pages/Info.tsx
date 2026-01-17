@@ -233,14 +233,14 @@ export default function Info() {
         <p style={{
           fontSize: '1.25rem',
           fontWeight: 400,
-          color: 'rgba(255,255,255,0.7)',
+          color: 'rgba(255,255,255,0.75)',
         }}>
           Thanks for stopping by!
         </p>
         <div style={{
           marginTop: '1rem',
           fontStyle: 'italic',
-          color: 'rgba(255,255,255,0.5)',
+          color: 'rgba(255,255,255,0.85)',
         }}>
           — Yue
         </div>
