@@ -18,7 +18,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
     }}>
       {/* Name */}
       <div>
-        <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'rgba(255,255,255,0.9)' }}>
+        <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'rgba(255,255,255,1)' }}>
           Yue Zhou
         </div>
       </div>
