@@ -4,12 +4,17 @@ import { v } from "convex/values";
 export const getPublishedPosts = query({
   args: {},
   handler: async (ctx) => {
-    return await ctx.db
+    const posts = await ctx.db
       .query("posts")
       .withIndex("by_published")
       .filter((q) => q.neq(q.field("publishedAt"), undefined))
       .order("desc")
       .collect();
+
+    return Promise.all(posts.map(async (post) => ({
+      ...post,
+      coverImageUrl: post.coverImage ? await ctx.storage.getUrl(post.coverImage) : null,
+    })));
   },
 });
 
