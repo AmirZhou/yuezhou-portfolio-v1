@@ -1,24 +1,33 @@
 import { useState, useEffect } from 'react'
 import { useQuery, useMutation } from 'convex/react'
 import { api } from '../../convex/_generated/api'
-import { Id } from '../../convex/_generated/dataModel'
+import type { Id } from '../../convex/_generated/dataModel'
 import PasswordGate from '../components/PasswordGate'
 import MarkdownEditor from '../components/MarkdownEditor'
 
+interface Post {
+  _id: Id<'posts'>
+  title: string
+  slug: string
+  excerpt: string
+  content: string
+  publishedAt?: number
+}
+
 function AdminContent() {
-  const posts = useQuery(api.posts.listAll) ?? []
-  const createPost = useMutation(api.posts.create)
-  const updatePost = useMutation(api.posts.update)
-  const deletePost = useMutation(api.posts.remove)
+  const posts = useQuery(api.posts.getAllPosts) ?? []
+  const createPost = useMutation(api.posts.createPost)
+  const updatePost = useMutation(api.posts.updatePost)
+  const deletePost = useMutation(api.posts.deletePost)
 
   const [selectedId, setSelectedId] = useState<Id<'posts'> | null>(null)
   const [title, setTitle] = useState('')
   const [slug, setSlug] = useState('')
   const [excerpt, setExcerpt] = useState('')
   const [content, setContent] = useState('')
-  const [status, setStatus] = useState<'draft' | 'published'>('draft')
+  const [isPublished, setIsPublished] = useState(false)
 
-  const selectedPost = posts.find(p => p._id === selectedId)
+  const selectedPost = posts.find((p: Post) => p._id === selectedId)
 
   useEffect(() => {
     if (selectedPost) {
@@ -26,7 +35,7 @@ function AdminContent() {
       setSlug(selectedPost.slug)
       setExcerpt(selectedPost.excerpt)
       setContent(selectedPost.content)
-      setStatus(selectedPost.status)
+      setIsPublished(!!selectedPost.publishedAt)
     }
   }, [selectedPost])
 
@@ -36,17 +45,17 @@ function AdminContent() {
     setSlug('')
     setExcerpt('')
     setContent('')
-    setStatus('draft')
+    setIsPublished(false)
   }
 
-  const handleSave = async (newStatus: 'draft' | 'published') => {
+  const handleSave = async (publish: boolean) => {
     if (selectedId) {
-      await updatePost({ id: selectedId, title, slug, excerpt, content, status: newStatus })
+      await updatePost({ id: selectedId, title, slug, excerpt, content, publish })
     } else {
-      const id = await createPost({ title, slug, excerpt, content, status: newStatus })
+      const id = await createPost({ title, slug, excerpt, content, publish })
       setSelectedId(id)
     }
-    setStatus(newStatus)
+    setIsPublished(publish)
   }
 
   const handleDelete = async () => {
@@ -88,7 +97,7 @@ function AdminContent() {
           + New Post
         </button>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          {posts.map(post => (
+          {posts.map((post: Post) => (
             <button
               key={post._id}
               onClick={() => setSelectedId(post._id)}
@@ -103,7 +112,7 @@ function AdminContent() {
                 {post.title || 'Untitled'}
               </div>
               <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)' }}>
-                {post.status}
+                {post.publishedAt ? 'published' : 'draft'}
               </div>
             </button>
           ))}
@@ -145,10 +154,10 @@ function AdminContent() {
               Delete
             </button>
           )}
-          <button onClick={() => handleSave('draft')} style={buttonStyle}>
+          <button onClick={() => handleSave(false)} style={buttonStyle}>
             Save Draft
           </button>
-          <button onClick={() => handleSave('published')} style={{ ...buttonStyle, background: 'rgba(255,255,255,0.15)' }}>
+          <button onClick={() => handleSave(true)} style={{ ...buttonStyle, background: 'rgba(255,255,255,0.15)' }}>
             Publish
           </button>
         </div>
