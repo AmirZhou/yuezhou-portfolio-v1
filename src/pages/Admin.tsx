@@ -34,7 +34,6 @@ function AdminContent() {
       setSlug(selectedPost.slug)
       setExcerpt(selectedPost.excerpt)
       setContent(selectedPost.content)
-      setIsPublished(!!selectedPost.publishedAt)
     }
   }, [selectedPost])
 
