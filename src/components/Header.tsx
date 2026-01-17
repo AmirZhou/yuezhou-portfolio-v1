@@ -88,7 +88,7 @@ function TabButton({
         cursor: 'pointer',
         transition: 'all 0.2s ease',
         background: active ? 'rgba(255,255,255,0.12)' : 'transparent',
-        color: active ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.5)',
+        color: active ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.55)',
       }}
     >
       {children}
