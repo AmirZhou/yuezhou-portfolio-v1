@@ -190,7 +190,7 @@ function AdminContent() {
     setSelectedId(null)
   }
 
-  const handleSave = async (data: { title: string; slug: string; excerpt: string; content: string }, publish: boolean) => {
+  const handleSave = async (data: { title: string; slug: string; excerpt: string; content: string; coverImage?: Id<'_storage'> }, publish: boolean) => {
     if (selectedId) {
       await updatePost({ id: selectedId, ...data, publish })
     } else {
