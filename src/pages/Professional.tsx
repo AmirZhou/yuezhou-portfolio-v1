@@ -61,7 +61,7 @@ export default function Professional() {
         </h1>
         <p style={{
           fontSize: '1rem',
-          color: 'rgba(255,255,255,0.6)',
+          color: 'rgba(255,255,255,0.55)',
           maxWidth: '400px',
           margin: '0 auto',
         }}>
