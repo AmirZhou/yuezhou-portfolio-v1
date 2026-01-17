@@ -74,7 +74,7 @@ export default function Professional() {
           transition={{ duration: 2, repeat: Infinity }}
           style={{
             marginTop: '3rem',
-            color: 'rgba(255,255,255,0.4)',
+            color: 'rgba(255,255,255,0.55)',
             fontSize: '1.5rem',
           }}
         >
