@@ -78,6 +78,7 @@ export const updatePost = mutation({
     slug: v.string(),
     content: v.string(),
     excerpt: v.string(),
+    coverImage: v.optional(v.id("_storage")),
     publish: v.boolean(),
   },
   handler: async (ctx, args) => {
@@ -89,6 +90,7 @@ export const updatePost = mutation({
       slug: args.slug,
       content: args.content,
       excerpt: args.excerpt,
+      coverImage: args.coverImage,
       publishedAt: args.publish ? (existing.publishedAt ?? Date.now()) : undefined,
       updatedAt: Date.now(),
     });
