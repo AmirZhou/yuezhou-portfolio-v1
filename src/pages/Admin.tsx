@@ -43,7 +43,6 @@ function AdminContent() {
     setSlug('')
     setExcerpt('')
     setContent('')
-    setIsPublished(false)
   }
 
   const handleSave = async (publish: boolean) => {
