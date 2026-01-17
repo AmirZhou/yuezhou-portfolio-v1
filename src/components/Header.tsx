@@ -52,7 +52,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
         rel="noopener noreferrer"
         style={{
           fontSize: '0.875rem',
-          color: 'rgba(255,255,255,0.6)',
+          color: 'rgba(255,255,255,0.55)',
           display: 'flex',
           alignItems: 'center',
           gap: '0.25rem',
