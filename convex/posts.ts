@@ -21,17 +21,29 @@ export const getPublishedPosts = query({
 export const getPost = query({
   args: { slug: v.string() },
   handler: async (ctx, args) => {
-    return await ctx.db
+    const post = await ctx.db
       .query("posts")
       .withIndex("by_slug", (q) => q.eq("slug", args.slug))
       .first();
+
+    if (!post) return null;
+
+    return {
+      ...post,
+      coverImageUrl: post.coverImage ? await ctx.storage.getUrl(post.coverImage) : null,
+    };
   },
 });
 
 export const getAllPosts = query({
   args: {},
   handler: async (ctx) => {
-    return await ctx.db.query("posts").order("desc").collect();
+    const posts = await ctx.db.query("posts").order("desc").collect();
+
+    return Promise.all(posts.map(async (post) => ({
+      ...post,
+      coverImageUrl: post.coverImage ? await ctx.storage.getUrl(post.coverImage) : null,
+    })));
   },
 });
 
