@@ -89,7 +89,7 @@ export default function ProjectCard({
             <h3 style={{
               fontSize: '1rem',
               fontWeight: 500,
-              color: 'rgba(255,255,255,0.9)',
+              color: 'rgba(255,255,255,1)',
               marginBottom: '0.25rem',
               margin: 0,
             }}>
@@ -97,7 +97,7 @@ export default function ProjectCard({
             </h3>
             <p style={{
               fontSize: '0.875rem',
-              color: 'rgba(255,255,255,0.5)',
+              color: 'rgba(255,255,255,0.55)',
               margin: 0,
             }}>
               {company}, '{year} — {description}
