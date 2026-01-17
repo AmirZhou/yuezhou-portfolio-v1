@@ -287,21 +287,21 @@ function FriendCard({ name, role, website, url }: { name: string; role: string; 
       <h3 style={{
         fontSize: '1.125rem',
         fontWeight: 500,
-        color: 'rgba(255,255,255,0.9)',
+        color: 'rgba(255,255,255,1)',
         marginBottom: '0.25rem',
       }}>
         {name}
       </h3>
       <p style={{
         fontSize: '0.875rem',
-        color: 'rgba(255,255,255,0.4)',
+        color: 'rgba(255,255,255,0.55)',
         marginBottom: '0.75rem',
       }}>
         {role}
       </p>
       <span style={{
         fontSize: '0.875rem',
-        color: 'rgba(255,255,255,0.5)',
+        color: 'rgba(255,255,255,0.55)',
         display: 'flex',
         alignItems: 'center',
         gap: '0.25rem',
