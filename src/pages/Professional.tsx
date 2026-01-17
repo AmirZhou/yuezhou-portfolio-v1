@@ -57,7 +57,7 @@ export default function Professional() {
           marginBottom: '1.5rem',
         }}>
           I build products,<br />
-          interactions & <span style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.7)' }}>experiences.</span>
+          interactions & <span style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.85)' }}>experiences.</span>
         </h1>
         <p style={{
           fontSize: '1rem',
