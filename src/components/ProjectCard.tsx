@@ -100,7 +100,15 @@ export default function ProjectCard({
               color: 'rgba(255,255,255,0.55)',
               margin: 0,
             }}>
-              {company}, '{year} — {description}
+              {company}, '{year}
+            </p>
+            <p style={{
+              fontSize: '0.875rem',
+              color: 'rgba(255,255,255,0.75)',
+              margin: 0,
+              marginTop: '0.25rem',
+            }}>
+              {description}
             </p>
           </div>
           <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '1rem' }}>→</span>
