@@ -100,6 +100,8 @@ export default function Professional() {
       </section>
 
       <WritingSection />
+
+      <VideosSection />
     </div>
   )
 }
