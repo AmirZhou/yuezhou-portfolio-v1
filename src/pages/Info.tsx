@@ -255,7 +255,7 @@ function StatItem({ label, value }: { label: string; value: string }) {
       <div style={{
         fontSize: '1.5rem',
         fontWeight: 300,
-        color: 'rgba(255,255,255,0.9)',
+        color: 'rgba(255,255,255,1)',
         marginBottom: '0.25rem',
       }}>
         {value}
@@ -265,7 +265,7 @@ function StatItem({ label, value }: { label: string; value: string }) {
         fontWeight: 500,
         textTransform: 'uppercase',
         letterSpacing: '0.05em',
-        color: 'rgba(255,255,255,0.4)',
+        color: 'rgba(255,255,255,0.55)',
       }}>
         {label}
       </div>
