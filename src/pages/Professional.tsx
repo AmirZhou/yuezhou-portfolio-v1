@@ -97,6 +97,8 @@ export default function Professional() {
           </motion.div>
         ))}
       </section>
+
+      <WritingSection />
     </div>
   )
 }
