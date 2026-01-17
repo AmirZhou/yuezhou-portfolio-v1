@@ -25,7 +25,6 @@ function AdminContent() {
   const [slug, setSlug] = useState('')
   const [excerpt, setExcerpt] = useState('')
   const [content, setContent] = useState('')
-  const [isPublished, setIsPublished] = useState(false)
 
   const selectedPost = posts.find((p: Post) => p._id === selectedId)
 
