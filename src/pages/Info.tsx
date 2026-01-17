@@ -26,7 +26,7 @@ export default function Info() {
           fontWeight: 600,
           textTransform: 'uppercase',
           letterSpacing: '0.15em',
-          color: 'rgba(255,255,255,0.4)',
+          color: 'rgba(255,255,255,0.55)',
           marginBottom: '1rem',
           display: 'flex',
           alignItems: 'center',
@@ -36,7 +36,7 @@ export default function Info() {
             width: '6px',
             height: '6px',
             borderRadius: '50%',
-            background: 'rgba(255,255,255,0.4)',
+            background: 'rgba(255,255,255,0.55)',
           }} />
           About Me
         </div>
