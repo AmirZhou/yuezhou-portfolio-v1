@@ -11,6 +11,8 @@ interface Post {
   slug: string
   excerpt: string
   content: string
+  coverImage?: Id<'_storage'>
+  coverImageUrl?: string | null
   publishedAt?: number
 }
 
