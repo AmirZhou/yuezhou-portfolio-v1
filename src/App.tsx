@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './index.css'
@@ -5,14 +6,15 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Professional from './pages/Professional'
 import Info from './pages/Info'
+import BlogPost from './pages/BlogPost'
+import Admin from './pages/Admin'
 
-function App() {
+function Home() {
   const [activeTab, setActiveTab] = useState<'work' | 'info'>('work')
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <>
       <Header activeTab={activeTab} onTabChange={setActiveTab} />
-
       <main style={{ flex: 1, padding: '0 1.5rem', maxWidth: '900px', margin: '0 auto', width: '100%' }}>
         <AnimatePresence mode="wait">
           {activeTab === 'work' ? (
@@ -38,9 +40,22 @@ function App() {
           )}
         </AnimatePresence>
       </main>
-
       <Footer />
-    </div>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/admin" element={<Admin />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
 
