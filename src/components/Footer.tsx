@@ -23,7 +23,7 @@ export default function Footer() {
               fontWeight: 600,
               textTransform: 'uppercase',
               letterSpacing: '0.1em',
-              color: 'rgba(255,255,255,0.4)',
+              color: 'rgba(255,255,255,1.0)',
               marginBottom: '0.75rem',
             }}>
               Main
@@ -40,7 +40,7 @@ export default function Footer() {
               fontWeight: 600,
               textTransform: 'uppercase',
               letterSpacing: '0.1em',
-              color: 'rgba(255,255,255,0.4)',
+              color: 'rgba(255,255,255,1.0)',
               marginBottom: '0.75rem',
             }}>
               Contact
@@ -60,7 +60,7 @@ export default function Footer() {
         paddingTop: '1.5rem',
         borderTop: '1px solid rgba(255,255,255,0.05)',
         fontSize: '0.75rem',
-        color: 'rgba(255,255,255,0.4)',
+        color: 'rgba(255,255,255,0.55)',
       }}>
         © {new Date().getFullYear()} Yue Zhou.
       </div>
@@ -84,14 +84,14 @@ function FooterLink({
       rel={external ? 'noopener noreferrer' : undefined}
       style={{
         fontSize: '0.875rem',
-        color: 'rgba(255,255,255,0.7)',
+        color: 'rgba(255,255,255,0.75)',
         display: 'flex',
         alignItems: 'center',
         gap: '0.25rem',
         transition: 'color 0.2s ease',
       }}
-      onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.9)'}
-      onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
+      onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(255,255,255,1.0)'}
+      onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.75)'}
     >
       {children}
       {external && <span style={{ fontSize: '0.75rem' }}>↗</span>}
