@@ -84,20 +84,20 @@ export default function Info() {
             fontSize: '1.25rem',
             fontWeight: 500,
             marginBottom: '0.5rem',
-            color: 'rgba(255,255,255,0.9)',
+            color: 'rgba(255,255,255,1)',
           }}>
             Victoria Marathon
           </h2>
           <p style={{
             fontSize: '0.875rem',
-            color: 'rgba(255,255,255,0.4)',
+            color: 'rgba(255,255,255,0.55)',
             marginBottom: '1rem',
           }}>
             October 2025 · Full Marathon · 3:11
           </p>
           <p style={{
             fontSize: '1rem',
-            color: 'rgba(255,255,255,0.6)',
+            color: 'rgba(255,255,255,0.75)',
             lineHeight: 1.7,
           }}>
             The body breaks before the mind does.
