@@ -48,7 +48,7 @@ export default function Info() {
           marginBottom: '2rem',
         }}>
           Beyond work, I run marathons<br />
-          and chase <span style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.7)' }}>personal records.</span>
+          and chase <span style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.85)' }}>personal records.</span>
         </h1>
       </motion.section>
 
