@@ -124,20 +124,20 @@ export default function Info() {
             fontSize: '1.25rem',
             fontWeight: 500,
             marginBottom: '0.5rem',
-            color: 'rgba(255,255,255,0.9)',
+            color: 'rgba(255,255,255,1)',
           }}>
             Calgary Marathon
           </h2>
           <p style={{
             fontSize: '0.875rem',
-            color: 'rgba(255,255,255,0.4)',
+            color: 'rgba(255,255,255,0.55)',
             marginBottom: '1rem',
           }}>
             May 2025 · Half Marathon · 1:29
           </p>
           <p style={{
             fontSize: '1rem',
-            color: 'rgba(255,255,255,0.6)',
+            color: 'rgba(255,255,255,0.75)',
             lineHeight: 1.7,
           }}>
             You don't find your limits. You set them.
